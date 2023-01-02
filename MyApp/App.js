@@ -1,21 +1,19 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import Video from 'react-native-video';
-import video from './assets/video.mp4';
-import Video1 from './video.mp4';
+
 export default function App() {
   return (
     <Video
-      source={Video1}
-      // ref={ref => {
-      //   this.player = ref;
-      // }}
-      // onBuffer={this.onBuffer}
-      // onError={this.videoError}
-      paused={false}
+      source={{uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'}}
+      ref={ref => {
+        this.player = ref;
+      }}
+      onBuffer={this.onBuffer}
+      onError={this.videoError}
       style={styles.backgroundVideo}
       controls={true}
-      repeat={true}
+      hls={true}
     />
   );
 }
@@ -26,6 +24,5 @@ var styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
-    //margin: 10,
   },
 });
